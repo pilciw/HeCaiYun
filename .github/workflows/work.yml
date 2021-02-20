@@ -1,0 +1,28 @@
+name: 'run'
+
+on:
+  schedule:
+    - cron: '10 16 * * *'
+  workflow_dispatch:
+
+jobs:
+  run:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: 'setup python'
+        uses: actions/setup-python@master
+        with: 
+          python-version: 3.7
+
+      - name: requirements
+        run : pip3 install -r requirements.txt
+
+      - name: main
+        env:
+          Skey: ${{ secrets.Skey }}
+          Cookie: ${{ secrets.Cookie }}
+          Referer: ${{ secrets.Referer }}
+          OpenLuckDraw: ${{ secrets.OpenLuckDraw }}
+        run: |
+          python3 ./SignIn.py

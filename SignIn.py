@@ -4,15 +4,15 @@
 # Auth: xuthus
 # SIG: QQ Group(824187964)
 
-import json
+import json, os
 from urllib import parse
 
 import requests
 
-OpenLuckDraw = False  # 是否开启自动幸运抽奖(首次免费, 第二次5积分/次) 不建议开启 否则会导致多次执行时消耗积分
-Skey = ""  # 酷推 skey
-Cookie = ""  # 抓包Cookie 存在引号时 请使用 \ 转义
-Referer = ""  # 抓包referer
+OpenLuckDraw = os.environ.get("OpenLuckDraw")  # 是否开启自动幸运抽奖(首次免费, 第二次5积分/次) 不建议开启 否则会导致多次执行时消耗积分
+Skey = os.environ.get("Skey")
+Cookie =  os.environ.get("Cookie")
+Referer = os.environ.get("Referer")
 UA = "Mozilla/5.0 (Linux; Android 10; M2007J3SC Build/QKQ1.191222.002; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/83.0.4103.106 Mobile Safari/537.36 MCloudApp/7.6.0"
 
 
