@@ -18,7 +18,7 @@ UA = "Mozilla/5.0 (Linux; Android 10; M2007J3SC Build/QKQ1.191222.002; wv) Apple
 
 def push(title, content):
     if Skey:
-        url = "https://push.xuthus.cc/send/" + Skey
+        url = "https://push.xuthus.cc/psend/" + Skey
         data = title + "\n" + content
         # 发送请求
         res = requests.post(url=url, data=data.encode('utf-8')).text
