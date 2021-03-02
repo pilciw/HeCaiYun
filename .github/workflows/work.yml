@@ -21,6 +21,7 @@ jobs:
       - name: main
         env:
           Skey: ${{ secrets.Skey }}
+          Smode: ${{ secrets.Smode }}
           Cookie: ${{ secrets.Cookie }}
           Referer: ${{ secrets.Referer }}
           OpenLuckDraw: ${{ secrets.OpenLuckDraw }}
