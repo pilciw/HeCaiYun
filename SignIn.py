@@ -11,6 +11,7 @@ import requests
 
 OpenLuckDraw = os.environ.get("OpenLuckDraw")  # 是否开启自动幸运抽奖(首次免费, 第二次5积分/次) 不建议开启 否则会导致多次执行时消耗积分
 Skey = os.environ.get("Skey")
+Smode = os.environ.get("Smode")
 Cookie =  os.environ.get("Cookie")
 Referer = os.environ.get("Referer")
 UA = "Mozilla/5.0 (Linux; Android 10; M2007J3SC Build/QKQ1.191222.002; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/83.0.4103.106 Mobile Safari/537.36 MCloudApp/7.6.0"
@@ -18,7 +19,7 @@ UA = "Mozilla/5.0 (Linux; Android 10; M2007J3SC Build/QKQ1.191222.002; wv) Apple
 
 def push(title, content):
     if Skey:
-        url = "https://push.xuthus.cc/psend/" + Skey
+        url = f"https://push.xuthus.cc/{Smode}/{Skey}"
         data = title + "\n" + content
         # 发送请求
         res = requests.post(url=url, data=data.encode('utf-8')).text
